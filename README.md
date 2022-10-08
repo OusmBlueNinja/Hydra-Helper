@@ -18,7 +18,7 @@ python3 main.py -h
 EXAMPLE:
 
 ```
-python main.py -v -ip (INSERT TARGET IP) 6 -port (INSERT TARGET PORT) -passlist (List of passwords to try) -username (Username for ssh host)
+python main.py -v -ip (INSERT TARGET IP) -port (INSERT TARGET PORT) -passlist (List of passwords to try) -username (Username for ssh host)
 ```
 
 ## HELP
