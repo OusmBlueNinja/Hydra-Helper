@@ -219,16 +219,14 @@ if responce == None or responce == 'y' or responce == 'Y':
     print(
         f'{b.WARNING}[INFO]{b.OKBLUE} Running SSH: PORT {b.OKGREEN}{PORT}{b.ENDC}')
     print()
-    output = []
     proc = subprocess.Popen(finalArgument, stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
     if err == None:
     #saves the output to an array so it can get the password and username from it
-      output = out
-      print(output)
-      uname = int(output.index(str('login: '))) + 1
-      host = int(output.index(str('host: '))) + 1
-      passkey = int(output.index(str('password: '))) + 1
+      print(out)
+      uname = int(out.index('login: ')) + 1
+      host = int(out.index('host: ')) + 1
+      passkey = int(out.index('password: ')) + 1
       
       print(f'sshpass -p {passkey} {uname}@{host}')
       
