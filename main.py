@@ -229,6 +229,9 @@ if responce == None or responce == 'y' or responce == 'Y':
         print(out[uname])
       except:
         print(out)
+        f = open('out.txt', 'a')
+        f.write(out)
+        f.close()
         print(out.type())
       
       
