@@ -140,11 +140,11 @@ if not PORT == '22':
     close()
     
   
-  INFO(f'{b.WARNING}[INFO]{b.OKBLUE} Running SSH {b.OKGREEN}{PORT}{b.ENDC}')
+  
   
   
 
-  
+INFO(f'{b.WARNING}[INFO]{b.OKBLUE} Running SSH {b.OKGREEN}{PORT}{b.ENDC}')  
 
 
 
