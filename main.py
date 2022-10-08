@@ -31,10 +31,29 @@ class b:
     
     
 def close():
-  INFO(f'{b.WARNING}[PROMPT]{b.OKBLUE} Promting to close {b.ENDC}')
+  print(f'{b.WARNING}[PROMPT]{b.OKBLUE} Promting to close {b.ENDC}')
   input(f'{b.WARNING}[INTERACTION]{b.HEADER} Press {b.OKCYAN}||ENTER||{b.HEADER} to Exit{b.ENDC}')
-  INFO(f'{b.FAIL}[EXIT]{b.OKBLUE} Exiting Program {b.ENDC}')
+  print(f'{b.FAIL}[EXIT]{b.OKBLUE} Exiting Program {b.ENDC}')
   sys.exit()
+  
+def installHydra():
+  print(f'{b.FAIL}[WARNING]{b.OKBLUE} Do you want to install hydra {b.OKCYAN}(Y/n){b.ENDC}')
+  responce = input()
+  print()
+  if responce == None or responce == 'y'or responce == 'Y':
+    
+      proc = subprocess.Popen('sudo apt install hydra-gtk', stdout=subprocess.PIPE, shell=True)
+      (out, err) = proc.communicate()
+      if not err == None:
+        print()
+        print(f'{b.WARNING}[INFO]{b.OKCYAN} If it dident work then read this{b.ENDC}')
+        print(f'{b.FAIL}[ERROR]{b.OKBLUE} Unable to install hydra, (must use linux) {b.ENDC}')
+      else:
+        print(f'{b.OKGREEN}[SUCCES]{b.OKBLUE} Succesfuly install Hydra {b.ENDC}')
+      close()
+      
+  elif responce == 'n'or responce == 'N':
+    close()
 
 
 INFO(f'{b.WARNING}[INFO]{b.HEADER} Checking if Hydra is installed{b.ENDC}')
@@ -52,8 +71,9 @@ if rc == 0:
     INFO(f'{b.WARNING}[INFO]{b.OKGREEN} Hydra is installed{b.ENDC}')
     pass
 else:
-    INFO(f'{b.FAIL}[ERROR]{b.HEADER} Hydra is not installed{b.ENDC}')
+    INFO(f'{b.FAIL}[ERROR]{b.WARNING} Hydra is not installed{b.ENDC}')
     INFO(f'{b.WARNING}[INFO]{b.HEADER} run {b.OKCYAN}sudo apt install hydra-gtk{b.HEADER} to proceed, the restart program {b.ENDC}')
+    installHydra()
     print()
     close()
     
@@ -144,8 +164,8 @@ if not PORT == '22':
   
   
   
-INFO()
-INFO(f'{b.WARNING}[INFO]{b.OKBLUE} Running SSH {b.OKGREEN}{PORT}{b.ENDC}')  
+print()
+print(f'{b.WARNING}[INFO]{b.OKBLUE} Running SSH {b.OKGREEN}{PORT}{b.ENDC}')  
 
 
 
