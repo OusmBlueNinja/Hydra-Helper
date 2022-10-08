@@ -229,6 +229,7 @@ if responce == None or responce == 'y' or responce == 'Y':
         print(out[uname])
       except:
         print(out)
+        print(out.type())
       
       
       #host = int(out.index('host:')) + 1
