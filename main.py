@@ -229,10 +229,8 @@ if responce == None or responce == 'y' or responce == 'Y':
         print(out[uname])
       except:
         print(out)
-        f = open('out.txt', 'wb')
-        f.write(out)
-        f.close()
         print(type(out))
+        
       
       
       #host = int(out.index('host:')) + 1
