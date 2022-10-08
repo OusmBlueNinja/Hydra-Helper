@@ -229,8 +229,8 @@ if responce == None or responce == 'y' or responce == 'Y':
         print(out[uname])
       except EXCEPTION as e:
           print(e)
-          print()
-          print(out)
+      print(out)
+      
       
       #host = int(out.index('host:')) + 1
       #passkey = int(out.index('password:')) + 1
