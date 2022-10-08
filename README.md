@@ -1,4 +1,6 @@
 # Hydra-Helper
+![image](https://user-images.githubusercontent.com/89956790/194683822-78e30b4c-d382-4569-97e3-e79dfe151cca.png)
+
 
 
 ## Install
@@ -28,6 +30,10 @@ Arguments:
   -passlist - Set a password list to use
   
   -username - Set a username list to use
+  
+ ## OUTPUT
+ 
+ 
   
   
 Made By
