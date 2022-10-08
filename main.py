@@ -224,14 +224,14 @@ if responce == None or responce == 'y' or responce == 'Y':
     if err == None:
     #saves the output to an array so it can get the password and username from it
       print(f'{b.OKGREEN}======================{b.HEADER}OUTPUT{b.OKGREEN}======================{b.ENDC}')
-      print()
+      print('')
       print(f'{b.WARNING}====={b.FAIL}====={b.WARNING}====={b.FAIL}====={b.WARNING}====={b.FAIL}====={b.WARNING}====={b.FAIL}====={b.WARNING}====={b.FAIL}====={b.ENDC}')
-      print()
+      print('')
       print(out)
-      print()
+      print('')
       print(f'{b.WARNING}====={b.FAIL}====={b.WARNING}====={b.FAIL}====={b.WARNING}====={b.FAIL}====={b.WARNING}====={b.FAIL}====={b.WARNING}====={b.FAIL}====={b.ENDC}')
-      print()
-      print()
+      print('')
+      print('')
         
       
       #print(f'sshpass -p {passkey} {uname}@{host}')
