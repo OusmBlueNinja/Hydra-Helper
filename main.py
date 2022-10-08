@@ -230,7 +230,7 @@ if responce == None or responce == 'y' or responce == 'Y':
       except:
         print(out)
         f = open('out.txt', 'a')
-        f.write(out)
+        f.write(str(out))
         f.close()
         print(out.type())
       
