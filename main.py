@@ -230,6 +230,8 @@ if responce == None or responce == 'y' or responce == 'Y':
       except:
         print(out)
         print(type(out))
+        print()
+        print(out.find('password: '))
         
       
       
