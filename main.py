@@ -49,6 +49,7 @@ except EXCEPTION as e:
 
 
 if rc == 0:
+    INFO(f'{b.WARNING}[INFO]{b.OKGREEN} Hydra is installed{b.ENDC}')
     pass
 else:
     INFO(f'{b.FAIL}[ERROR]{b.HEADER} Hydra is not installed{b.ENDC}')
@@ -59,8 +60,8 @@ else:
 
   
     
-INFO(f'{b.WARNING}[INFO]{b.HEADER} this program will run hydra to crack SSH passwords{b.ENDC}')
-INFO(f'{b.WARNING}[INFO]{b.HEADER} You can enter diffrent port but the program will crash (unless that port is being used for SSH){b.ENDC}')
+print(f'{b.WARNING}[INFO]{b.HEADER} this program will run hydra to crack SSH passwords{b.ENDC}')
+print(f'{b.WARNING}[INFO]{b.HEADER} You can enter diffrent port but the program will crash (unless that port is being used for SSH){b.ENDC}')
 input(f'{b.WARNING}[INTERACTION]{b.HEADER} Press {b.OKCYAN}||ENTER||{b.HEADER} to Continue{b.ENDC}')
 
 def help():
@@ -132,7 +133,7 @@ if  ipaddress.ip_address(IP):
 if PORT.isnumeric():
   INFO(f'{b.WARNING}[INFO]{b.OKBLUE} Set PORT to {b.OKGREEN}{PORT}{b.ENDC}')
 if not PORT == '22':
-  INFO(f'{b.FAIL}[WARNING]{b.OKBLUE} Are you sure you want to run SSH attack on PORT {b.OKGREEN}{PORT} {b.OKCYAN}(Y/n){b.ENDC}')
+  print(f'{b.FAIL}[WARNING]{b.OKBLUE} Are you sure you want to run SSH attack on PORT {b.OKGREEN}{PORT} {b.OKCYAN}(Y/n){b.ENDC}')
   responce = input()
   if responce == None or responce == 'y'or responce == 'Y':
     pass
@@ -143,7 +144,7 @@ if not PORT == '22':
   
   
   
-
+INFO()
 INFO(f'{b.WARNING}[INFO]{b.OKBLUE} Running SSH {b.OKGREEN}{PORT}{b.ENDC}')  
 
 
