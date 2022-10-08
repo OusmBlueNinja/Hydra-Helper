@@ -223,12 +223,15 @@ if responce == None or responce == 'y' or responce == 'Y':
     (out, err) = proc.communicate()
     if err == None:
     #saves the output to an array so it can get the password and username from it
-      print(f'{b.HEADER}======================OUTPUT======================{b.ENDC}')
+      print(f'{b.OKGREEN}======================{b.HEADER}OUTPUT{b.OKGREEN}======================{b.ENDC}')
+      print()
       print(f'{b.WARNING}====={b.FAIL}====={b.WARNING}====={b.FAIL}====={b.WARNING}====={b.FAIL}====={b.WARNING}====={b.FAIL}====={b.WARNING}====={b.FAIL}====={b.ENDC}')
       print()
       print(out)
       print()
       print(f'{b.WARNING}====={b.FAIL}====={b.WARNING}====={b.FAIL}====={b.WARNING}====={b.FAIL}====={b.WARNING}====={b.FAIL}====={b.WARNING}====={b.FAIL}====={b.ENDC}')
+      print()
+      print()
         
       
       #print(f'sshpass -p {passkey} {uname}@{host}')
