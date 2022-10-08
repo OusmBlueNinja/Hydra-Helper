@@ -1,4 +1,4 @@
-#imports lybrarys
+
 import os
 import sys
 import ipaddress
@@ -7,7 +7,7 @@ import subprocess
 import time
 import random
 from tkinter import EXCEPTION
-#defines logo
+
 logo = '''
 ██╗░░██╗██╗░░░██╗██████╗░██████╗░░█████╗░░░░░░░██╗░░██╗███████╗██╗░░░░░██████╗░███████╗██████╗░
 ██║░░██║╚██╗░██╔╝██╔══██╗██╔══██╗██╔══██╗░░░░░░██║░░██║██╔════╝██║░░░░░██╔══██╗██╔════╝██╔══██╗
@@ -20,15 +20,15 @@ print(logo)
 time.sleep(1)
 Verbos = True
 
-#setsup verbos output
+
 def INFO(text):
     if Verbos:
         print(text)
 
-#gets the name of the file
+
 file = os.path.basename(__file__)
 
-#colors for terminal
+
 class b:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -41,7 +41,7 @@ class b:
     UNDERLINE = '\033[4m'
     WHITE = '\u001b[37m'
 
-#function to safly close terminal
+
 def close():
     print(f'{b.WARNING}[PROMPT]{b.OKBLUE} Promting to close {b.ENDC}')
     input(
@@ -49,7 +49,7 @@ def close():
     print(f'{b.FAIL}[EXIT]{b.OKBLUE} Exiting Program {b.ENDC}')
     sys.exit()
 
-#function to install hydra and prompt to ask if you want to install hydra
+
 def installHydra():
     print(
         f'{b.FAIL}[WARNING]{b.OKBLUE} Do you want to install hydra {b.OKCYAN}(Y/n){b.ENDC}')
@@ -57,8 +57,7 @@ def installHydra():
     print()
     if responce == None or responce == 'y' or responce == 'Y':
 
-        proc = subprocess.Popen(
-            'sudo apt install hydra-gtk', stdout=subprocess.PIPE, shell=True)
+        proc = subprocess.Popen('sudo apt install hydra-gtk', stdout=subprocess.PIPE, shell=True)
         (out, err) = proc.communicate()
         if not err == None:
             print()
@@ -74,7 +73,7 @@ def installHydra():
 
 
 INFO(f'{b.WARNING}[INFO]{b.HEADER} Checking if Hydra is installed{b.ENDC}')
-#checks if hydra is install on windows or linux
+
 try:
     rc = subprocess.call(['which', 'hydra'])
 except FileNotFoundError:
@@ -92,14 +91,14 @@ else:
     installHydra()
     print()
 
-#displays a WARNING to inform you that this only works with ssh
+
 print(
     f'{b.WARNING}[INFO]{b.HEADER} this program will run hydra to crack SSH passwords{b.ENDC}')
 print(f'{b.WARNING}[INFO]{b.HEADER} You can enter diffrent port but the program will crash (unless that port is being used for SSH){b.ENDC}')
 input(
     f'{b.FAIL}[INTERACTION]{b.HEADER} Press {b.OKCYAN}||ENTER||{b.HEADER} to Continue{b.ENDC}')
 
-# function to print the help menu
+
 def help():
     print('')
     print(f'{b.WHITE}==========HELP=========={b.ENDC}')
@@ -119,13 +118,17 @@ def help():
     print(f'{b.OKCYAN}[https://github.com/ousmblueninja]{b.ENDC}')
     sys.exit()
 
-#gets the arguments passed in when command was ran
+
 try:
     args = sys.argv
     try:
         args.remove(file)
     except ValueError:
-        INFO(f'{b.FAIL}[ERROR] cannot filter args{b.ENDC}')
+        print()
+        INFO(f'{b.FAIL}[ERROR]{b.WARNING} cannot filter args{b.ENDC}')
+        INFO(f'{b.FAIL}[ERROR]{b.WARNING} Please do {b.OKCYAN}-h{b.WARNING} to display help menu{b.ENDC}')
+        print()
+        close()
 except IndexError:
     Verbos = False
     pass
@@ -179,7 +182,7 @@ except NameError:
     INFO(f'{b.FAIL}[ERROR] NameError{b.ENDC}')
     INFO(
         f'{b.FAIL}[ERROR] {b.WARNING}IP or PORT is Null, please do -ip/-port to specify ip / port{b.ENDC}')
-#validates the ip adress and port
+
 if ipaddress.ip_address(IP):
     INFO(f'{b.WARNING}[INFO]{b.OKBLUE} Set IP to {b.OKGREEN}{IP}{b.ENDC}')
 if PORT.isnumeric():
@@ -193,8 +196,7 @@ if not PORT == '22':
         pass
     elif responce == 'n' or responce == 'N':
         close()
-#checks if you gave it an amout of thread to run
-#and creates the final string that it will save/run/print
+
 if THREADS == None:
     INFO(
         f'{b.WARNING}[WARNING]{b.OKBLUE} No THREADS set, defaulting to {b.OKCYAN}8{b.ENDC}')
@@ -203,14 +205,12 @@ if THREADS == None:
 else:
     finalArgument = 'sudo hydra -l ' + username + \
         ' -P '+passlist + ' ssh://'+IP + ' -t '+THREADS
-        
-#informes you that it has made the string
 print(f'{b.OKGREEN}[SUCSESS]{b.ENDC}')
 print()
 print(f'{b.OKGREEN}[OUTPUT]{b.OKCYAN} {finalArgument}{b.ENDC}')
 print()
 
-#askes if you want to run the command
+
 print(
     f'{b.FAIL}[INTERACTION]{b.OKBLUE} Do you want to run the command  {b.OKCYAN}(Y/n){b.ENDC}')
 responce = input()
@@ -219,20 +219,21 @@ if responce == None or responce == 'y' or responce == 'Y':
     print(
         f'{b.WARNING}[INFO]{b.OKBLUE} Running SSH: PORT {b.OKGREEN}{PORT}{b.ENDC}')
     print()
-    os.system(finalArgument)
+    
+    proc = subprocess.Popen(finalArgument, stdout=subprocess.PIPE, shell=True)
+    (out, err) = proc.communicate()
+    print(out, err)
     pass
 elif responce == 'n' or responce == 'N':
-#askes if you want to save the command to a file
+
     print(
         f'{b.FAIL}[INTERACTION]{b.OKBLUE} Do you want to Save the command  {b.OKCYAN}(Y/n){b.ENDC}')
     responce = input()
     print()
     if responce == None or responce == 'y' or responce == 'Y':
-        INFO(
-            f'{b.WARNING}[INFO]{b.OKBLUE} Saving Command to {b.OKCYAN}command.sh {b.ENDC}')
+        INFO(f'{b.WARNING}[INFO]{b.OKBLUE} Saving Command to {b.OKCYAN}command.sh {b.ENDC}')
         time.sleep(0.3)
-        INFO(
-            f'{b.WARNING}[INFO]{b.OKBLUE} Creating {b.OKCYAN}command.sh{b.ENDC}')
+        INFO(f'{b.WARNING}[INFO]{b.OKBLUE} Creating {b.OKCYAN}command.sh{b.ENDC}')
         f = open('command.sh', 'a')
         time.sleep(0.5)
         INFO(f'{b.WARNING}[INFO]{b.OKBLUE} Saving file {b.ENDC}')
@@ -246,5 +247,5 @@ elif responce == 'n' or responce == 'N':
 
     print()
 
-#keeps window open so you can read it and or copy the command
+
 input(f'{b.FAIL}[INTERACTION]{b.HEADER} Press {b.OKCYAN}||ENTER||{b.HEADER} to close window{b.ENDC}')
