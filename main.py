@@ -223,12 +223,15 @@ if responce == None or responce == 'y' or responce == 'Y':
     (out, err) = proc.communicate()
     if err == None:
     #saves the output to an array so it can get the password and username from it
-      #print(out)
-      if 'login: ' in out:
+      
+      try:  
         uname = int(out.index('login:')) + 1
         print(out[uname])
-      else:
-          print('[ERROR]')
+      except EXCEPTION as e:
+          print(e)
+          print()
+          print(out)
+      
       #host = int(out.index('host:')) + 1
       #passkey = int(out.index('password:')) + 1
       
