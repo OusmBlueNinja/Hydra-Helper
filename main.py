@@ -219,10 +219,18 @@ if responce == None or responce == 'y' or responce == 'Y':
     print(
         f'{b.WARNING}[INFO]{b.OKBLUE} Running SSH: PORT {b.OKGREEN}{PORT}{b.ENDC}')
     print()
-    
+    output = []
     proc = subprocess.Popen(finalArgument, stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
-    print(out, err)
+    if err == None:
+    #saves the output to an array so it can get the password and username from it
+      output = out
+      print(output)
+      
+      
+    else:
+      print(f'{b.FAIL}[ERROR] {b.WARNING}Unable to run command{b.ENDC}')
+      print(f'{b.FAIL}{err}{b.ENDC}')
     pass
 elif responce == 'n' or responce == 'N':
 
