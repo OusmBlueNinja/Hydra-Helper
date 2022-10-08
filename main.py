@@ -227,9 +227,8 @@ if responce == None or responce == 'y' or responce == 'Y':
       try:  
         uname = int(out.index('login:')) + 1
         print(out[uname])
-      except EXCEPTION as e:
-          print(e)
-      print(out)
+      except:
+        print(out)
       
       
       #host = int(out.index('host:')) + 1
