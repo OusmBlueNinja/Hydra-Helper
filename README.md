@@ -31,10 +31,14 @@ Arguments:
   
   -username - Set a username list to use
   
+  ![carbon (1)](https://user-images.githubusercontent.com/89956790/194683961-e5674b08-ae56-4928-8bc2-8356097df9ea.png)
+  
  ## OUTPUT
  
- 
+ ![image](https://user-images.githubusercontent.com/89956790/194683850-82d93be2-00a6-4554-a7a4-12e008aa2e3e.png)
+
   
   
 Made By
+
 [ https://github.com/ousmblueninja ]
