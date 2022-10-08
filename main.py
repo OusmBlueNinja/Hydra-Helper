@@ -6,7 +6,6 @@ import subprocess
 
 import time
 import random
-from tkinter import EXCEPTION
 
 logo = '''
 ██╗░░██╗██╗░░░██╗██████╗░██████╗░░█████╗░░░░░░░██╗░░██╗███████╗██╗░░░░░██████╗░███████╗██████╗░
