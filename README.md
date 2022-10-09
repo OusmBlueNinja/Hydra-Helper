@@ -8,7 +8,7 @@
 ## Install
 
 ```
-wget -O main.py https://raw.githubusercontent.com/OusmBlueNinja/Hydra-Helper/main/main.py
+wget -O main.py https://raw.githubusercontent.com/OusmBlueNinja/Hydra-Helper/main/hydra-helper.py
 ```
 
 ```
